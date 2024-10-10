@@ -23,12 +23,16 @@ export default {
         graywhite: "#0D0A19",
         dipperple: "#0D0A19",
 
+
         // dark color
         bgcolorgreen: "#19362D",
         darkbgcolor: "#171212",
         darktextdipcolor: "#CBC9C9",
         darktextcolor: "#868383",
         darkcofeecolor: "#292424",
+        darkgreencolor:"#19362D",
+
+        gradientcolor: "bg-clip-text text-transparent bg-gradient-to-b from-prepulecolor to-darkgreencolor"
       },
 
       fontFamily: {
