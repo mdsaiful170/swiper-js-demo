@@ -6,7 +6,7 @@ export const Gradient = ({ children, className }) => {
     <>
       <span
         className={cn(
-          "bg-clip-text text-transparent bg-gradient-to-b capitalize from-prepulecolor to-textwhitecolor",
+          "bg-clip-text text-transparent bg-gradient-to-b capitalize from-prepulecolor dark:to-darktextdipcolor to-prepulecolor",
           className
         )}
       >

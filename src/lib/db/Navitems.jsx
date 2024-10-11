@@ -8,8 +8,12 @@
         herf:"/auctions"
     },
     {
-        navtext:"New Cars",
+        navtext:"SellCars",
         herf:"/sellcars"
+    },
+    {
+        navtext:"New Cars",
+        herf:"/newcars"
     },
     {
         navtext:"Localdealers",

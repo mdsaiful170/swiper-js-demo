@@ -7,7 +7,7 @@ export const Headingtext = ({ children, className ,gradient }) => {
       <h3
         className={
           (cn(
-            "text-center capitalize text-2xl pb-[30px] text-dipperple   lg:text-[28px] font-bold" ,className
+            "text-center  capitalize text-2xl pb-[30px] text-dipperple dark:text-darktextdipcolor   lg:text-[28px] font-bold" ,className
           ))
         }
       >

@@ -1,10 +1,26 @@
 import { useEffect, useState } from "react";
+import { NavItems } from "../../lib/db/Navitems";
+import { Container } from "../compobox/Container";
+import { MobileMenu } from "../compobox/MobileMenu";
+import Loginbox from "../compobox/Loginbox";
 
 const Nabar = () => {
+
+  const [toggle, settoggle] = useState(false)
+  const [login, setloging] = useState(false);
+  
+
+  const togglerHandle= ()=> {
+       settoggle((prv)=> !prv)
+  }
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   const handleTheme = (e) => {
     setTheme(e.target.checked ? "dark" : "light");
+  };
+  const handleLoginToggle = () => {
+    // Step 2: Function to toggle login button visibility
+    setloging((prev) => !prev);
   };
 
   useEffect(() => {
@@ -14,8 +30,8 @@ const Nabar = () => {
 
   return (
     <>
-      <div className="border-b z- border-b-white shadow-sm dark:border-b-darkcofeecolor dark:border-textblckcolor">
-        <header className="container mx-auto px-3 lg:px-0 py-4">
+      <Container>
+        <header className="px-4 lg:px-0 py-3 md:py-4 dark:border-darkcofeecolor  lg:py-5 border-b border-t-darktextdipcolor">
           <div className="flex items-center">
             <div>
               <a href="#">
@@ -23,37 +39,27 @@ const Nabar = () => {
               </a>
             </div>
 
-            <nav className="ms-auto hidden lg:block pe-5">
-              <ul className="flex items-center gap-4">
-                <li>
-                  <a href="Used">Used Cars</a>
-                </li>
-                <li>
-                  <a href="Auctions">Auctions</a>
-                </li>
-                <li>
-                  <a href="Newcars">New Cars</a>
-                </li>
-                <li>
-                  <a href="Sellcars">Sell Cars</a>
-                </li>
-                <li>
-                  <a href="Localdealers">Local Dealers</a>
-                </li>
-                <li>
-                  <a href="Support">Support</a>
-                </li>
+            <nav className="ms-auto hidden lg:block pe-[42px]">
+              <ul className="flex items-center gap-0 lg:gap-[42px]">
+                {NavItems.map((res, i) => (
+                  <li
+                    key={i}
+                    className="text-textblckcolor font-semibold dark:text-darktextcolor hover:text-prepulecolor dark:hover:text-prepulecolor cursor-pointer"
+                  >
+                    <a herf={res.herf}>{res.navtext}</a>
+                  </li>
+                ))}
               </ul>
             </nav>
 
             <div className="flex items-center gap-3 ms-auto lg:ms-0">
-              <div>
-                <i className="ri-menu-line text-xl cursor-pointer text-textwhitecolor"></i>
-              </div>
-              <div className="flex items-center">
-                <i className="ri-user-fill  text-textwhitecolor text-xl me-1"></i>
-                <span>Sign Up</span>
-              </div>
+              <button onClick={togglerHandle} className="lg:hidden block">
+                <i className="ri-menu-line  text-lg lg:text-xl cursor-pointer text-textwhitecolor"></i>
+              </button>
+              <button className="flex items-center" onClick={handleLoginToggle}>
+                <i className="ri-user-fill   text-textwhitecolor text-lg lg:text- me-1"></i>
+                <span className=" hidden md:block">Sign Up</span>
+              </button>
 
               <div className="flex items-center">
                 <label className="inline-flex items-center relative">
@@ -91,7 +97,10 @@ const Nabar = () => {
             </div>
           </div>
         </header>
-      </div>
+
+        {toggle && <MobileMenu toggler={togglerHandle} />}
+        {login && <Loginbox logintog={handleLoginToggle} />}
+      </Container>
     </>
   );
 };
