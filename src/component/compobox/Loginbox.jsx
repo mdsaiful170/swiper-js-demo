@@ -32,7 +32,7 @@ const Loginbox = ({logintog}) => {
                 placeholder="Password"
               />
             </label>
-            <Button className="block mx-auto mt">login</Button>
+            <Button className="block mx-auto px-12 py-3">login</Button>
           </form>
         </div>
       </Container>

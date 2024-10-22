@@ -1,23 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-@layer base{
-  html{
-     @apply  !overflow-x-hidden scroll-smooth scroll-pt-7;
+@layer base {
+  html {
+    @apply !overflow-x-hidden scroll-smooth scroll-pt-7;
   }
-  body{
-    @apply outline-none text-textwhitecolor dark:text-darktextcolor transition-all duration-150 font-inter font-normal dark:bg-darkbgcolor ;
+  body {
+    @apply outline-none text-textwhitecolor dark:text-darktextcolor transition-all duration-150 font-inter font-normal dark:bg-darkbgcolor;
   }
 
   h1,
-  h2
-  h3
-  h4
-  h5{
-    @apply text-textblckcolor dark:text-darktextdipcolor
+  h2 h3 h4 h5 {
+    @apply text-textblckcolor dark:text-darktextdipcolor;
   }
-  
+}
+
+
+
+@layer{
+  .swiper-pagination-bullet {
+    width: 1rem !important;
+    height: 0.3rem !important;
+    border-radius: 0.2rem !important;
+    background: rgb(157, 157, 157) !important;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: greenyellow !important;
+  }
 }

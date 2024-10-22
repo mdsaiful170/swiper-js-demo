@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
 import { NavItems } from "../../lib/db/Navitems";
 import { Container } from "../compobox/Container";
-import { MobileMenu } from "../compobox/MobileMenu";
+import { MobileMenu } from "../shear/MobileMenu";
 import Loginbox from "../compobox/Loginbox";
+import { NavLink, Outlet } from "react-router-dom";
 
 const Nabar = () => {
-
-  const [toggle, settoggle] = useState(false)
+  const [toggle, settoggle] = useState(false);
   const [login, setloging] = useState(false);
-  
 
-  const togglerHandle= ()=> {
-       settoggle((prv)=> !prv)
-  }
+  const togglerHandle = () => {
+    settoggle((prv) => !prv);
+  };
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   const handleTheme = (e) => {
@@ -46,7 +45,8 @@ const Nabar = () => {
                     key={i}
                     className="text-textblckcolor font-semibold dark:text-darktextcolor hover:text-prepulecolor dark:hover:text-prepulecolor cursor-pointer"
                   >
-                    <a herf={res.herf}>{res.navtext}</a>
+                    <NavLink to={res.herf}>{res.navtext}</NavLink>
+                    {/* <a herf={res.herf}>{res.navtext}</a> */}
                   </li>
                 ))}
               </ul>
@@ -101,6 +101,8 @@ const Nabar = () => {
         {toggle && <MobileMenu toggler={togglerHandle} />}
         {login && <Loginbox logintog={handleLoginToggle} />}
       </Container>
+
+      <Outlet />
     </>
   );
 };

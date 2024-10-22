@@ -1,19 +1,22 @@
 import "boxicons";
 import "remixicon/fonts/remixicon.css";
 import "./App.css";
-import Nabar from "./component/home/Nabar";
-
-
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Nabar from "./component/pages/Nabar";
+import Home from "./component/Pages/Home";
 
 
 function App() {
   return (
     <>
-     
-     <main>
-       <Nabar />
-     </main>
+      <BrowserRouter>
+        <Routes>
+          <Route path="" element={<Nabar />}>
+         
+          <Route path="/"  element={<Home />}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
